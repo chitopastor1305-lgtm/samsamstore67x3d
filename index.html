@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEON CYBER STORE & AI ASSISTANT</title>
+    <style>
+        :root {
+            --neon-purple: #7c4dff;
+            --neon-cyan: #00e5ff;
+            --neon-pink: #ff007f;
+            --bg-dark: #0a0a12;
+            --bg-card: #121222;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: radial-gradient(circle at top, #111126, #000);
+            color: white;
+            display: flex;
+            min-height: 100vh;
+        }
+
+        /* --- BARRA LATERAL CONTROLES --- */
+        .sidebar {
+            width: 300px;
+            background: #06060c;
+            height: 100vh;
+            padding: 20px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            border-right: 2px solid var(--neon-purple);
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            overflow-y: auto;
+        }
+
+        .sidebar h2 {
+            color: var(--neon-purple);
+            margin: 0 0 15px 0;
+            font-size: 1.4rem;
+            text-shadow: 0 0 10px rgba(124, 77, 255, 0.4);
+            text-align: center;
+        }
+
+        .cat-title {
+            font-size: 11px;
+            text-transform: uppercase;
+            color: #666;
+            margin: 10px 0 3px 0;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        .sidebar button {
+            width: 100%;
+            padding: 10px 12px;
+            background: #141428;
+            border: 1px solid #222;
+            cursor: pointer;
+            color: #ccc;
+            font-weight: bold;
+            border-radius: 6px;
+            text-align: left;
+            transition: all 0.2s;
+        }
+
+        .sidebar button:hover, .sidebar button.active {
+            background: var(--neon-purple);
+            color: white;
+            border-color: var(--neon-purple);
+            box-shadow: 0 0 10px rgba(124, 77, 255, 0.3);
+        }
+
+        .sidebar input {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            background: #111;
+            border: 1px solid var(--neon-cyan);
+            border-radius: 6px;
+            color: white;
+            box-sizing: border-box;
+        }
+
+        /* --- CONTENIDO PRINCIPAL --- */
+        .main {
+            margin-left: 320px;
+            margin-right: 340px; /* Espacio para el chat de IA a la derecha */
+            padding: 30px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .section h2 {
+            color: var(--neon-cyan);
+            border-left: 4px solid var(--neon-cyan);
+            padding-left: 12px;
+            margin-top: 0;
+            text-shadow: 0 0 10px rgba(0, 229, 255, 0.2);
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .card {
+            background: linear-gradient(145deg, var(--bg-card), #0b0b14);
+            padding: 12px;
+            border-radius: 12px;
+            border: 1px solid #222;
+            transition: all 0.3s;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            border: 1px solid var(--neon-cyan);
+            box-shadow: 0 0 12px rgba(0, 229, 255, 0.2);
+        }
+
+        .card img {
+            width: 100%;
+            height: 130px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        .card h4 {
+            margin: 8px 0 4px 0;
+            font-size: 0.95rem;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .price {
+            color: var(--neon-cyan);
+            font-weight: bold;
+            font-size: 1.1rem;
+            margin: 4px 0;
+        }
+
+        .brand-tag {
+            font-size: 10px;
+            padding: 2px 6px;
+            border-radius: 4px;
+            background: #222;
+            width: fit-content;
+            color: #aaa;
+            margin-bottom: 8px;
+        }
+
+        .card button {
+            width: 100%;
+            padding: 8px;
+            background: var(--neon-cyan);
+            border: none;
+            cursor: pointer;
+            color: #000;
+            font-weight: bold;
+            border-radius: 6px;
+        }
+
+        /* --- PANEL DE INTELIGENCIA ARTIFICIAL (DERECHA) --- */
+        .ai-panel {
+            width: 340px;
+            background: #07070
